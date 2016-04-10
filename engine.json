@@ -1,0 +1,18 @@
+{
+  "id": "default",
+  "description": "Default settings",
+  "engineFactory": "VanillaEngine",
+  "datasource": {
+    "params" : {
+      "appName": "customer-churn"
+    }
+  },
+  "algorithms": [
+    {
+      "name": "algo",
+      "params": {
+        "epochs" : 1
+      }
+    }
+  ]
+}
