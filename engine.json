@@ -4,7 +4,7 @@
   "engineFactory": "VanillaEngine",
   "datasource": {
     "params" : {
-      "appName": "customer-churn"
+      "appName": "predict-deal"
     }
   },
   "algorithms": [
