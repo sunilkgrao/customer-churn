@@ -1,21 +1,26 @@
 import io.prediction.controller.{Engine, IEngineFactory}
+import org.joda.time.format.DateTimeFormat
 
-case class Query(intlPlan: Boolean,
-                 voiceMailPlan: Boolean,
-                 numVmailMsg: Long,
-                 totalDayMins: Double,
-                 totalDayCalls: Long,
-                 totalDayCharge: Double,
-                 totalEveMins: Double,
-                 totalEveCalls: Long,
-                 totalEveCharge: Double,
-                 totalNightMins: Double,
-                 totalNightCalls: Long,
-                 totalNightCharge: Double,
-                 totalIntlMins: Double,
-                 totalIntlCalls: Long,
-                 totalIntlCharge: Double,
-                 customerServiceCalls: Long) extends Serializable
+case class Query(
+opportunityId: String,
+accountId: String,
+name: String,
+description: String,
+amount: Double,
+closeDate: DateTimeFormat,
+opportunityType: String,
+nextStep: String,
+leadSource: String,
+isWon: Boolean,
+campaignId: String,
+ownerId: String,
+territory: String,
+createdDate: DateTimeFormat,
+fiscalQuarter: String,
+fiscalYear: String,
+discount: Double,
+competitor: String,
+age: Double) extends Serializable
 
 case class PredictedResult(p: String) extends Serializable
 

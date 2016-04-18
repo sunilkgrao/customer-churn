@@ -28,6 +28,7 @@ class DataSource(val dsp: DataSourceParams)
         event.event match {
           case "customer" =>
             Customer(Some(event.entityId),
+              Some(event.properties.get[String]("Id")),
               Some(event.properties.get[String]("AccountId")),
               Some(event.properties.get[String]("Name")),
               Some(event.properties.get[String]("Description")),
@@ -47,29 +48,6 @@ class DataSource(val dsp: DataSourceParams)
               Some(event.properties.get[String]("Competitor__c")),
               Some(event.properties.get[Double]("Age__c")))
 
-/*
-            sb.append("Id=" + Id);
-            sb.append(",AccountId=" + AccountId);
-            sb.append(",Name=" + Name);
-            sb.append(",Description=" + Description);
-            sb.append(",Amount=" + String.valueOf(Amount));
-            sb.append(",CloseDate=" + String.valueOf(CloseDate));
-            sb.append(",Type=" + Type);
-            sb.append(",NextStep=" + NextStep);
-            sb.append(",LeadSource=" + LeadSource);
-            sb.append(",IsWon=" + String.valueOf(IsWon));
-            sb.append(",CampaignId=" + CampaignId);
-            sb.append(",OwnerId=" + OwnerId);
-            sb.append(",Territory2Id=" + Territory2Id);
-            sb.append(",CreatedDate=" + String.valueOf(CreatedDate));
-            sb.append(",FiscalQuarter=" + String.valueOf(FiscalQuarter));
-            sb.append(",FiscalYear=" + String.valueOf(FiscalYear));
-            sb.append(",Discount__c=" + String.valueOf(Discount__c));
-            sb.append(",Competitor__c=" + Competitor__c);
-            sb.append(",Age__c=" + String.valueOf(Age__c));
-            sb.append("]");
-
-*/
           case _ => throw new Exception(s"Unexpected event ${event} is read.")
         }
       } catch {
@@ -87,6 +65,7 @@ class DataSource(val dsp: DataSourceParams)
 
 @SerialVersionUID(9129684718267757690L) case class Customer(
    id: Option[String],
+   opportunityId: Option[String],
    accountId: Option[String],
    name: Option[String],
    description: Option[String],
