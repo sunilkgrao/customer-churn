@@ -44,15 +44,16 @@ class Algorithm(val ap: AlgorithmParams)
 
     // Build customer from query and convert into data frame
     val customerFromQuery = Customer(
-      None, Some(query.opportunityId), Some(query.accountId),
+      None,
+      Some(query.opportunityId), Some(query.accountId),
       Some(query.name),
       Some(query.description), Some(query.amount),
       Some(query.closeDate), Some(query.opportunityType),
-      Some(query.nextStep), Some(query.leadSource),
-      None, Some(query.campaignId),
+      Some(query.nextStep), Some(query.leadSource), Some(query.campaignId),
       Some(query.ownerId), Some(query.territory),
       Some(query.createdDate), Some(query.fiscalQuarter),
-      Some(query.fiscalYear),Some(query.discount),Some(query.competitor),Some(query.age))
+      Some(query.fiscalYear),Some(query.discount),Some(query.competitor),Some(query.age),
+      None)
 
     val customerQueryRDD = model.sc.parallelize(Array(customerFromQuery))
     val customerQueryDataFrame = new H2OFrame(customerQueryRDD)

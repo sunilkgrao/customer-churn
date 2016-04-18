@@ -37,7 +37,6 @@ class DataSource(val dsp: DataSourceParams)
               Some(event.properties.get[String]("Type")),
               Some(event.properties.get[String]("NextStep")),
               Some(event.properties.get[String]("LeadSource")),
-              Some(event.properties.get[Boolean]("IsWon")),
               Some(event.properties.get[String]("CampaignId")),
               Some(event.properties.get[String]("OwnerId")),
               Some(event.properties.get[String]("Territory2Id")),
@@ -46,7 +45,8 @@ class DataSource(val dsp: DataSourceParams)
               Some(event.properties.get[String]("FiscalYear")),
               Some(event.properties.get[Double]("Discount__c")),
               Some(event.properties.get[String]("Competitor__c")),
-              Some(event.properties.get[Double]("Age__c")))
+              Some(event.properties.get[Double]("Age__c")),
+              Some(event.properties.get[Boolean]("IsWon")))
 
           case _ => throw new Exception(s"Unexpected event ${event} is read.")
         }
@@ -74,7 +74,6 @@ class DataSource(val dsp: DataSourceParams)
    opportunityType: Option[String],
    nextStep: Option[String],
    leadSource: Option[String],
-   isWon: Option[Boolean],
    campaignId: Option[String],
    ownerId: Option[String],
    territory: Option[String],
@@ -83,7 +82,8 @@ class DataSource(val dsp: DataSourceParams)
    fiscalYear: Option[String],
    discount: Option[Double],
    competitor: Option[String],
-   age: Option[Double]) extends Serializable
+   age: Option[Double],
+   isWon: Option[Boolean]) extends Serializable
 
 class TrainingData(
                     val customers: RDD[Customer]

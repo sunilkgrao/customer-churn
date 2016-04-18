@@ -1,4 +1,4 @@
 // Generated automatically by pio build.
 // Changes in this file will be overridden.
 
-pioVersion := "0.9.5"
+pioVersion := "0.9.6"
